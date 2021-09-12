@@ -1,0 +1,11 @@
+{
+  "name": "csstodo",
+  "version": "1.0.0",
+  "description": "Todays task is making a functional and interactive (except adding/removing items) To-Do-List, using only CSS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

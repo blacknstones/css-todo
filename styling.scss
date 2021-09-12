@@ -1,0 +1,82 @@
+body {
+  font-family: 'Roboto Mono', monospace;
+  background-color: linen;
+}
+
+h1 {
+    font-size: 35px;
+  }
+  
+  h2 {
+    font-size: 28px;
+  }
+
+#done {
+    order: 1;
+    transition: all .3s ease;
+    
+    &::after {
+      content: ": " counter(done);
+    }
+  }
+
+#pending {
+    order: 3;
+    
+    &::after {
+      content: ": " counter(pending);
+    }
+  }
+
+.list-container {
+    background-color: blanchedalmond;
+    counter-reset: done pending;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+
+    input[type="checkbox"] {
+        transition: all .5s ease;
+        transform: translateY(30px) translateX(10px);
+        order: 4;
+        +label {
+          transition: all .5s ease;
+          order: 4;
+          counter-increment: pending;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+          background-color: linen;
+        }
+        
+        &:checked {
+          order: 2;
+          +label {
+            order: 2;
+            counter-increment: done;
+            background-color: rgba(0, 255, 0, 0.125);
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+            text-decoration: line-through;
+          }
+        }
+
+  }
+}
+
+.ish-list-container {
+    #another-item2 {
+      &:checked {
+        transition: all 5s ease;
+        position: absolute;
+        transform: translate(100vh, 100vw) rotate(360deg);
+        animation: explode 2s forwards;
+        +label {
+          transition: all 5s ease;
+          position: absolute;
+          transform: translate(-100vh, -100vw) rotate(-360deg);
+          animation: explode 2s forwards;
+        }
+      }
+    }
+}
+
+@keyframes explode {
+  0% {letter-spacing:0.1em;opacity:1;}
+  100% {letter-spacing:2em;opacity:0;}
+}

@@ -1,0 +1,123 @@
+body {
+  font-family: 'Roboto Mono', monospace;
+  background-color: linen;
+}
+
+h1 {
+  font-size: 35px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+#done {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+#done::after {
+  content: ": " counter(done);
+}
+
+#pending {
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+}
+
+#pending::after {
+  content: ": " counter(pending);
+}
+
+.list-container {
+  background-color: blanchedalmond;
+  counter-reset: done pending;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+
+.list-container input[type="checkbox"] {
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  -webkit-transform: translateY(30px) translateX(10px);
+          transform: translateY(30px) translateX(10px);
+  -webkit-box-ordinal-group: 5;
+      -ms-flex-order: 4;
+          order: 4;
+}
+
+.list-container input[type="checkbox"] + label {
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  -webkit-box-ordinal-group: 5;
+      -ms-flex-order: 4;
+          order: 4;
+  counter-increment: pending;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  background-color: linen;
+}
+
+.list-container input[type="checkbox"]:checked {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+
+.list-container input[type="checkbox"]:checked + label {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+  counter-increment: done;
+  background-color: rgba(0, 255, 0, 0.125);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  text-decoration: line-through;
+}
+
+.ish-list-container #another-item2:checked {
+  -webkit-transition: all 5s ease;
+  transition: all 5s ease;
+  position: absolute;
+  -webkit-transform: translate(100vh, 100vw) rotate(360deg);
+          transform: translate(100vh, 100vw) rotate(360deg);
+  -webkit-animation: explode 2s forwards;
+          animation: explode 2s forwards;
+}
+
+.ish-list-container #another-item2:checked + label {
+  -webkit-transition: all 5s ease;
+  transition: all 5s ease;
+  position: absolute;
+  -webkit-transform: translate(-100vh, -100vw) rotate(-360deg);
+          transform: translate(-100vh, -100vw) rotate(-360deg);
+  -webkit-animation: explode 2s forwards;
+          animation: explode 2s forwards;
+}
+
+@-webkit-keyframes explode {
+  0% {
+    letter-spacing: 0.1em;
+    opacity: 1;
+  }
+  100% {
+    letter-spacing: 2em;
+    opacity: 0;
+  }
+}
+
+@keyframes explode {
+  0% {
+    letter-spacing: 0.1em;
+    opacity: 1;
+  }
+  100% {
+    letter-spacing: 2em;
+    opacity: 0;
+  }
+}
+/*# sourceMappingURL=styling.css.map */
